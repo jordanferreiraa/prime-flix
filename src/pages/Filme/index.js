@@ -4,12 +4,12 @@ import "./style.css"
 import api from "../../services/api";
 import { toast } from "react-toastify";
 
-function Filmes() {
+function Filme() {
   const { id } = useParams();
   const navigate = useNavigate();
 
   const [filme, setFilme] = useState({});
-  const [loading, setLoading] = useState({});
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     async function loadFilme() {
@@ -68,7 +68,7 @@ function Filmes() {
       <h1>{filme.title}</h1>
       <img src={`https://image.tmdb.org/t/p/original/${filme.backdrop_path}`} alt={filme.title} />
 
-      <h3>Sinoptse</h3>
+      <h3>Sinopse</h3>
       <span>{filme.overview}</span>
       <strong>Avaliação: {filme.vote_average.toFixed(1)} / 10</strong>
 
@@ -85,4 +85,4 @@ function Filmes() {
   );
 }
 
-export default Filmes;
+export default Filme;
